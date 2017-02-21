@@ -1,0 +1,9 @@
+drop table if exists bda_users;
+
+create table bda_users (
+  uid int,
+  first_name string,
+  second_name string
+)
+  stored as avro;
+

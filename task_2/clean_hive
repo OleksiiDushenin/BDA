@@ -1,0 +1,5 @@
+drop table if exists user_records;
+drop table if exists user_without_stats;
+drop table if exists no_user_for_stats;
+drop table if exists all_users_stat;
+

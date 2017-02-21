@@ -1,0 +1,32 @@
+create table all_users_stat (
+  uid int,
+  statcount int
+)
+  clustered by (uid) sorted by (uid) into 5 buckets
+  stored as ORC;
+
+create table user_records (
+  uid int,
+  statcount int
+)
+  clustered by (uid) sorted by (uid) into 5 buckets
+  row format delimited fields terminated by ',' stored as textfile;
+
+create table user_without_stats (
+  uid int
+)
+  clustered by (uid) sorted by (uid) into 5 buckets
+  row format delimited fields terminated by ',' stored as textfile;
+
+create table no_user_for_stats (
+  uid int
+)
+  clustered by (uid) sorted by (uid) into 5 buckets
+  row format delimited fields terminated by ',' stored as textfile;
+
+
+insert into all_users_stat select s.userid as uid, count(1) as statscount from social s group by s.userid;
+insert into user_records select u.uid, coalesce(s.statcount, 0L) as statcount from bda_users u left join all_users_stat s on u.uid = s.uid;
+insert into user_without_stats select uid from user_records where statcount = 0;
+insert into no_user_for_stats select s.uid from all_users_stat s where not exists (select 1 from user_records u where u.statcount <> 0  and u.uid = s.uid);
+

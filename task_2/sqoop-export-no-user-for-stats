@@ -1,0 +1,11 @@
+--table
+no_user_for_stats_temp
+--export-dir
+/user/hive/warehouse/no_user_for_stats
+--update-key
+uid
+--update-mode
+allowinsert
+--input-fields-terminated-by
+','
+

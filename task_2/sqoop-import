@@ -1,0 +1,14 @@
+--table
+bda_users
+--target-dir
+/user/hive/warehouse/bda_users
+--split-by
+uid
+--as-avrodatafile
+--check-column
+uid
+--incremental
+append
+--last-value
+-1
+
