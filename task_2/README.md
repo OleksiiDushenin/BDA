@@ -19,4 +19,7 @@
 1. `social` table should be presented in Hive (Task 1).
 2. ./task2_init.sh.
 3. ./task2_exec.sh. (Can be used in cron).
- 
+
+## Configuration
+
+### 
