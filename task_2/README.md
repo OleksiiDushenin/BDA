@@ -22,4 +22,15 @@
 
 ## Configuration
 
-### 
+### /usr/lib/sqoop/conf/sqoop-site.xml
+
+```xml
+  <property>
+    <name>sqoop.metastore.client.record.password</name>
+    <value>true</value>
+    <description>If true, allow saved passwords in the metastore.
+    </description>
+  </property>
+```
+
+
