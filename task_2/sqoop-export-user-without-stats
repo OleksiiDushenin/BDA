@@ -2,10 +2,6 @@
 user_without_stats_temp
 --export-dir
 /user/hive/warehouse/user_without_stats
---update-key
-uid
---update-mode
-allowinsert
 --input-fields-terminated-by
 ','
 

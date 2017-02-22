@@ -2,6 +2,10 @@
 user_records
 --export-dir
 /user/hive/warehouse/user_records
+--update-key
+uid
+--update-mode
+allowinsert
 --input-fields-terminated-by
 ','
 
